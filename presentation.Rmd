@@ -3,23 +3,27 @@ title: 'Week 3 Assignment: R Markdown Presentation & Plotly'
 author: "Joonas Siivonen"
 date: "8/2/2017"
 output: ioslides_presentation
+smaller: yes
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
 library(XML)
 library(plotly)
+
 ```
 
 
-## TOP-500 supercomputers in each country 
-The plot show number of supercomputers (colour, see legend) with certain R-max value in each country (x-axis). To get a good view zoom and move the plot.  
-```{r plotting, echo=FALSE}
+##TOP-500 supercomputers in each country 
+```{r plotting, echo=FALSE,}
 #read the data 
 supercomputers <- xmlToDataFrame("TOP500_201706_all.xml")
 #Make the plot 
 plot_ly(supercomputers, x=supercomputers$`r-max`, y=supercomputers$country, type = "histogram2d")
 
 ```
+
+##Explanation
+The plot shows number of supercomputers (colour, see legend) with certain R-max value in each country (x-axis). To get a good view zoom and move the plot. 
 
 ## Thank you
